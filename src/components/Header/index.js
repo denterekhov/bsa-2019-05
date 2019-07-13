@@ -1,29 +1,25 @@
 import React from 'react';
-// import { api } from '../../REST';
-// import { Header } from '../Header';
-// import { MessageList } from '../MessageList';
-// import { MessageInput } from '../MessageInput';
-// import PropTypes from 'prop-types'
-// import './App.css';
 import { number, string } from 'prop-types';
+import './Header.css';
 
 const Header = ({ usersQuantity, messageQuantity, lastMessageTime }) => {
-  // console.log('props: ', props);
-  // const { messageQuantity, usersQuantity } = props;
-  // console.log('usersQuantity: ', usersQuantity);
-  // console.log('messageQuantity: ', messageQuantity);
   return (
-    <>
-        <p>
+    <header>
+      <div style={{width: '50%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <div style={{fontSize: 24}}>
+          My chat
+        </div>
+        <div>
           {usersQuantity} participants
-        </p>
-        <p>
+        </div>
+        <div>
           {messageQuantity} messages
-        </p>
-        <p>
-          Last message at {lastMessageTime}
-        </p>
-    </>
+        </div>
+      </div>
+      <div style={{width: '50%', textAlign: 'right'}}>
+        Last message at {lastMessageTime}
+      </div>
+    </header>
   )
 }
 

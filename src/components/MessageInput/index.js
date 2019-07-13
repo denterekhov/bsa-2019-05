@@ -39,7 +39,9 @@ const MessageInput = (props) => {
 
   return (
     <>
-      <form onSubmit={handleCreateMessage} style={{display: 'flex', width: '70%', justifyContent: 'space-between', alignItems: 'flex-end'}}>
+      <form 
+        onSubmit={handleCreateMessage} 
+        style={{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'flex-end'}}>
         <TextField
           label="Message"
           className={classes.textField}

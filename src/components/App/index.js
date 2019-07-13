@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 import { api } from '../../REST';
 import { Header } from '../Header';
 import { MessageList } from '../MessageList';
@@ -59,29 +62,36 @@ class App extends Component {
 
   render() {
     const { messages } = this.state;
-    const usersQuantity = [...new Set(messages.map(({user}) => user))].length;
+    const usersQuantity = (new Set(messages.map(({user}) => user))).size;
     const lastMessageTime = messages.length && messages[messages.length - 1].created_at;
 
     return (
       <>
         {messages.length 
-          ? <div>
+          ? <>
               <Header 
                 messageQuantity={messages.length}
                 usersQuantity={usersQuantity}
                 lastMessageTime={lastMessageTime}
               />
-              <MessageList 
-                messages={messages}
-                deleteMessage={this.deleteMessage}
-                editMessage={this.editMessage}
-                likeMessage={this.likeMessage}
-              />
-              <MessageInput 
-                createNewMessage={this.createNewMessage}
-              />
-          </div>
-          : <div>Loading...</div>
+              <CssBaseline />
+              <Container maxWidth="md">
+                <MessageList 
+                  messages={messages}
+                  deleteMessage={this.deleteMessage}
+                  editMessage={this.editMessage}
+                  likeMessage={this.likeMessage}
+                />
+                <MessageInput 
+                  createNewMessage={this.createNewMessage}
+                />
+              </Container>
+          </>
+          : <CircularProgress
+              size={60}
+              thickness={4}
+              style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}
+            />
         }
       </>
     )
