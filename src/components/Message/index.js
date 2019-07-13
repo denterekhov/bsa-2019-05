@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { Edit, Delete, ThumbUp } from '@material-ui/icons';
 import { func, shape, bool, string } from 'prop-types';
+import './Message.css';
 
 const Message = ({ post, editMessage, deleteMessage, likeMessage }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -25,17 +26,18 @@ const Message = ({ post, editMessage, deleteMessage, likeMessage }) => {
 
   const createEditIcon = () => user === 'Den' 
     ? <Edit 
-        style={{width: '.6em', marginLeft: 'auto', marginRight: 0, cursor: 'pointer'}} 
+        className='edit_icon'
         onClick={handleEditMessage}/> 
     : null;
   const createDeleteIcon = () => user === 'Den' 
     ? <Delete 
-        style={{width: '.6em', marginRight: 0, cursor: 'pointer'}} 
+        className='delete_icon'
         onClick={() => deleteMessage(id)}/> 
     : null;
   const createThumbUpIcon = () => user !== 'Den' 
     ? <ThumbUp 
-        style={{position: 'absolute', bottom: 6, right: 10, width: '.6em', cursor: 'pointer', color: thumbUpIconColor}} 
+        className='like_icon'
+        style={{color: thumbUpIconColor}} 
         onClick={() => likeMessage(id)}/> 
     : null;
 
@@ -45,19 +47,21 @@ const Message = ({ post, editMessage, deleteMessage, likeMessage }) => {
 
   return (
     <Card 
-      style={{position: 'relative', display: 'flex', padding: 15, width: 400, marginTop: 20, marginLeft: myMessageAlignment}}>
+      className='card'
+      style={{marginLeft: myMessageAlignment}}>
       {avatar && <Avatar src={avatar} alt="user" style={{margin: 10}}/>}
       <div style={{width: '80%', maxWidth: '100%'}}>
         <p>
           {created_at}
         </p>
         <TextareaAutosize
+          className='textarea'
           aria-label="Textarea" 
           rows={3}  
           defaultValue={message}
           ref={inputRef} 
           disabled={!isEditing} 
-          style={{backgroundColor: 'transparent', width: '100%', resize: 'none', border: `1px solid ${textAreaBorderColor}`}}
+          style={{border: `1px solid ${textAreaBorderColor}`}}
         />
       </div>
       {editIcon}

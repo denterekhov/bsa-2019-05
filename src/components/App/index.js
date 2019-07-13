@@ -6,6 +6,7 @@ import { api } from '../../REST';
 import { Header } from '../Header';
 import { MessageList } from '../MessageList';
 import { MessageInput } from '../MessageInput';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -88,9 +89,9 @@ class App extends Component {
               </Container>
           </>
           : <CircularProgress
+              className='spinner'
               size={60}
               thickness={4}
-              style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}
             />
         }
       </>

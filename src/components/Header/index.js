@@ -5,7 +5,7 @@ import './Header.css';
 const Header = ({ usersQuantity, messageQuantity, lastMessageTime }) => {
   return (
     <header>
-      <div style={{width: '50%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      <div className='chat_stats'>
         <div style={{fontSize: 24}}>
           My chat
         </div>
@@ -16,7 +16,7 @@ const Header = ({ usersQuantity, messageQuantity, lastMessageTime }) => {
           {messageQuantity} messages
         </div>
       </div>
-      <div style={{width: '50%', textAlign: 'right'}}>
+      <div className='last_time_message'>
         Last message at {lastMessageTime}
       </div>
     </header>

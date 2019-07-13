@@ -9,3 +9,15 @@ header {
   color: #fff;
   font-size: 16px;
 }
+
+.chat_stats {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.last_time_message {
+  width: 50%;
+  text-align: right;
+}

@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
 import { func } from 'prop-types';
+import './MessageInput.css';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -40,8 +41,8 @@ const MessageInput = (props) => {
   return (
     <>
       <form 
-        onSubmit={handleCreateMessage} 
-        style={{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'flex-end'}}>
+        onSubmit={handleCreateMessage}
+        className='form'>
         <TextField
           label="Message"
           className={classes.textField}

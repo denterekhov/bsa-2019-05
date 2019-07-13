@@ -1,3 +1,39 @@
-textarea::scrollbar {
+.card {
+  position: relative;
+  display: flex;
+  padding: 15px;
+  width: 400px;
+  margin-top: 20px;
+}
+
+svg.edit_icon,
+svg.delete_icon,
+svg.like_icon {
+  width: .6em;
+  cursor: pointer;
+}
+
+.edit_icon {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.delete_icon {
+  margin-right: 0;
+}
+
+.like_icon {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+}
+
+.textarea {
+  background-color: transparent;
+  width: 100%;
+  resize: none;
+}
+
+.textarea::scrollbar {
   display: none;
 }
